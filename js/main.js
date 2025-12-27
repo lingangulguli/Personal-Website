@@ -140,3 +140,47 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Gallery Slider with Dots
+function slideGallery(btn, direction) {
+    const gallery = btn.closest('.timeline-gallery');
+    const track = gallery.querySelector('.gallery-track');
+    const dots = gallery.querySelectorAll('.gallery-dot');
+    const images = track.querySelectorAll('img');
+    const totalImages = images.length;
+    
+    // Get current index from active dot
+    let currentIndex = 0;
+    dots.forEach((dot, i) => {
+        if (dot.classList.contains('active')) currentIndex = i;
+    });
+    
+    // Calculate new index
+    let newIndex = currentIndex + direction;
+    if (newIndex < 0) newIndex = 0;
+    if (newIndex >= totalImages) newIndex = totalImages - 1;
+    
+    // Move track
+    track.style.transform = `translateX(-${newIndex * 100}%)`;
+    
+    // Update dots
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === newIndex);
+    });
+}
+
+// Click on dot to go to that slide
+function goToSlide(dot, index) {
+    const gallery = dot.closest('.timeline-gallery');
+    const track = gallery.querySelector('.gallery-track');
+    const dots = gallery.querySelectorAll('.gallery-dot');
+    
+    track.style.transform = `translateX(-${index * 100}%)`;
+    
+    dots.forEach((d, i) => {
+        d.classList.toggle('active', i === index);
+    });
+}
+
+window.slideGallery = slideGallery;
+window.goToSlide = goToSlide;
