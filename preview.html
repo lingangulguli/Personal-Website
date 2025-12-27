@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aaron Wen | Portfolio Preview</title>
+    <title>Aaron Wen | Preview</title>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -21,349 +21,114 @@
             --border-light: #e2e8f0;
             --font-primary: 'Rajdhani', system-ui, sans-serif;
             --font-mono: 'IBM Plex Mono', monospace;
-            --sp-xs: 0.5rem;
-            --sp-sm: 1rem;
-            --sp-md: 1.5rem;
-            --sp-lg: 2rem;
-            --sp-xl: 3rem;
+            --sp-xs: 0.5rem; --sp-sm: 1rem; --sp-md: 1.5rem; --sp-lg: 2rem; --sp-xl: 3rem;
             --transition: 0.2s ease;
         }
-        
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: var(--font-primary);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            font-weight: 500;
-            min-height: 100vh;
+        [data-theme="dark"] {
+            --bg-primary: #0f1419; --bg-secondary: #1a1f26; --bg-card: #1e2530;
+            --text-primary: #e2e8f0; --text-secondary: #94a3b8; --text-muted: #64748b;
+            --border-color: #334155; --border-light: #1e293b;
         }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-primary); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; font-weight: 500; transition: background 0.4s, color 0.4s; }
         a { text-decoration: none; color: inherit; }
         
-        .bg-pattern {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: -1;
-            opacity: 0.4;
-            background-image: 
-                linear-gradient(90deg, var(--border-light) 1px, transparent 1px),
-                linear-gradient(var(--border-light) 1px, transparent 1px);
-            background-size: 80px 80px;
-        }
+        .bg-pattern { position: fixed; inset: 0; pointer-events: none; z-index: -1; opacity: 0.3; background-image: linear-gradient(90deg, var(--border-color) 1px, transparent 1px), linear-gradient(var(--border-color) 1px, transparent 1px); background-size: 80px 80px; }
+        [data-theme="dark"] .bg-pattern { opacity: 0.15; }
         
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(244, 246, 248, 0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            padding: var(--sp-sm) var(--sp-lg);
-        }
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .nav-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: var(--sp-xs);
-        }
-        .nav-logo::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--accent-primary);
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-        }
+        .theme-toggle { position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border-color); cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 1000; transition: var(--transition); }
+        .theme-toggle:hover { border-color: var(--accent-primary); transform: scale(1.05); }
+        .theme-toggle svg { width: 20px; height: 20px; color: var(--text-primary); }
+        .theme-toggle .sun { display: none; } .theme-toggle .moon { display: block; }
+        [data-theme="dark"] .theme-toggle .sun { display: block; } [data-theme="dark"] .theme-toggle .moon { display: none; }
+        
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(244, 246, 248, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); padding: var(--sp-sm) var(--sp-lg); }
+        [data-theme="dark"] .navbar { background: rgba(15, 20, 25, 0.9); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: var(--sp-xs); }
+        .nav-logo::before { content: ''; width: 8px; height: 8px; background: var(--accent-primary); clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
         .nav-links { display: flex; gap: var(--sp-lg); align-items: center; }
-        .nav-link {
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: var(--text-secondary);
-            padding: var(--sp-xs) 0;
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-primary);
-            transition: var(--transition);
-        }
+        .nav-link { font-size: 0.9rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-secondary); }
         .nav-link:hover, .nav-link.active { color: var(--accent-primary); }
-        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
-        .nav-cta {
-            padding: var(--sp-xs) var(--sp-md);
-            background: var(--accent-primary);
-            color: white;
-            font-weight: 600;
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
-        }
+        .nav-cta { padding: var(--sp-xs) var(--sp-md); background: var(--accent-primary); color: white; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px)); }
         
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: calc(80px + var(--sp-xl)) var(--sp-lg) var(--sp-xl);
-        }
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 400px;
-            gap: 80px;
-            align-items: center;
-        }
-        .hero-label {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--sp-xs);
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--accent-primary);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: var(--sp-md);
-        }
+        .hero { min-height: 100vh; display: flex; align-items: center; padding: calc(80px + var(--sp-xl)) var(--sp-lg) var(--sp-xl); }
+        .hero-container { max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: center; }
+        .hero-label { display: inline-flex; align-items: center; gap: var(--sp-xs); font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--sp-md); }
         .hero-label::before { content: '//'; opacity: 0.5; }
-        .hero-title {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: var(--sp-md);
-            letter-spacing: -0.02em;
-        }
+        .hero-title { font-size: clamp(2.2rem, 4.5vw, 3.2rem); font-weight: 700; line-height: 1.15; margin-bottom: var(--sp-md); }
         .hero-title .highlight { color: var(--accent-primary); }
-        .hero-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: var(--sp-lg);
-            max-width: 480px;
-            line-height: 1.7;
-        }
-        .hero-stats {
-            display: flex;
-            gap: var(--sp-xl);
-            margin-bottom: var(--sp-lg);
-            padding: var(--sp-md) 0;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent-primary);
-            font-family: var(--font-mono);
-        }
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
+        .hero-subtitle { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: var(--sp-lg); max-width: 520px; line-height: 1.7; }
+        .hero-stats { display: flex; gap: var(--sp-xl); margin-bottom: var(--sp-lg); padding: var(--sp-md) 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .stat-number { font-size: 2rem; font-weight: 700; color: var(--accent-primary); font-family: var(--font-mono); }
+        .stat-label { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
         .hero-buttons { display: flex; gap: var(--sp-sm); }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--sp-xs);
-            padding: var(--sp-sm) var(--sp-lg);
-            font-family: var(--font-primary);
-            font-weight: 600;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            transition: var(--transition);
-            cursor: pointer;
-            border: none;
-        }
-        .btn-primary {
-            background: var(--bg-dark);
-            color: var(--text-inverse);
-            clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-        }
+        .btn { display: inline-flex; align-items: center; gap: var(--sp-xs); padding: var(--sp-sm) var(--sp-lg); font-family: var(--font-primary); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; transition: var(--transition); cursor: pointer; border: none; }
+        .btn-primary { background: var(--bg-dark); color: var(--text-inverse); clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px)); }
+        [data-theme="dark"] .btn-primary { background: var(--accent-primary); color: white; }
         .btn-primary:hover { background: var(--accent-primary); }
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-        }
+        .btn-secondary { background: transparent; color: var(--text-primary); border: 1px solid var(--border-color); }
         .btn-secondary:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
         
-        .hero-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: var(--sp-lg);
-            position: relative;
-        }
-        .hero-card::before {
-            content: '';
-            position: absolute;
-            top: -1px;
-            left: -1px;
-            right: -1px;
-            height: 4px;
-            background: var(--accent-primary);
-        }
-        .hero-card-header {
-            display: flex;
-            align-items: center;
-            gap: var(--sp-sm);
-            margin-bottom: var(--sp-md);
-            padding-bottom: var(--sp-sm);
-            border-bottom: 1px solid var(--border-light);
-        }
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--accent-secondary);
-            border-radius: 50%;
-        }
-        .status-text {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-        .hero-image-placeholder {
-            aspect-ratio: 1;
-            background: var(--bg-secondary);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            border: 1px dashed var(--border-color);
-        }
-        .hero-image-placeholder svg {
-            width: 48px;
-            height: 48px;
-            margin-bottom: var(--sp-sm);
-            opacity: 0.3;
-        }
-        .hero-card-footer {
-            margin-top: var(--sp-md);
-            padding-top: var(--sp-sm);
-            border-top: 1px solid var(--border-light);
-            display: flex;
-            justify-content: space-between;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
+        .hero-card { background: var(--bg-card); border: 1px solid var(--border-color); padding: var(--sp-lg); position: relative; }
+        .hero-card::before { content: ''; position: absolute; top: -1px; left: -1px; right: -1px; height: 4px; background: var(--accent-primary); }
+        .hero-card-header { display: flex; align-items: center; gap: var(--sp-sm); margin-bottom: var(--sp-md); padding-bottom: var(--sp-sm); border-bottom: 1px solid var(--border-light); }
+        .status-dot { width: 8px; height: 8px; background: var(--accent-secondary); border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .status-text { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+        .hero-image-placeholder { aspect-ratio: 1; background: var(--bg-secondary); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-muted); border: 1px dashed var(--border-color); }
+        .hero-image-placeholder svg { width: 48px; height: 48px; margin-bottom: var(--sp-sm); opacity: 0.3; }
+        .hero-card-footer { margin-top: var(--sp-md); padding-top: var(--sp-sm); border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); }
         
         .section { padding: 80px var(--sp-lg); }
         .section-container { max-width: 1200px; margin: 0 auto; }
         .section-header { margin-bottom: var(--sp-xl); }
-        .section-label {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--accent-primary);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: var(--sp-xs);
-        }
-        .section-title {
-            font-size: clamp(1.75rem, 3vw, 2.5rem);
-            font-weight: 700;
-            letter-spacing: -0.01em;
-        }
-        .section-subtitle { color: var(--text-secondary); margin-top: var(--sp-sm); max-width: 600px; }
+        .section-label { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--sp-xs); }
+        .section-title { font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700; }
+        .section-subtitle { color: var(--text-secondary); margin-top: var(--sp-sm); max-width: 600px; line-height: 1.7; }
         
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--sp-lg);
-        }
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: var(--sp-lg);
-            position: relative;
-            transition: var(--transition);
-        }
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 0;
-            background: var(--accent-primary);
-            transition: var(--transition);
-        }
-        .card:hover { border-color: var(--accent-primary); }
-        .card:hover::before { height: 100%; }
-        .card-icon { font-size: 1.5rem; margin-bottom: var(--sp-sm); display: inline-block; }
-        .card-title { font-size: 1.25rem; font-weight: 700; margin-bottom: var(--sp-xs); }
-        .card-description { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: var(--sp-md); }
-        .card-tags { display: flex; flex-wrap: wrap; gap: var(--sp-xs); }
-        .tag {
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            padding: 4px 10px;
-            background: var(--bg-secondary);
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
+        .timeline-section { background: var(--bg-secondary); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .timeline { position: relative; max-width: 900px; margin: 0 auto; }
+        .timeline::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); top: 0; bottom: 0; width: 2px; background: var(--border-color); }
+        .timeline-item { position: relative; width: 50%; padding: var(--sp-md); cursor: pointer; }
+        .timeline-item:nth-child(odd) { left: 0; padding-right: calc(var(--sp-xl) + 20px); text-align: right; }
+        .timeline-item:nth-child(even) { left: 50%; padding-left: calc(var(--sp-xl) + 20px); text-align: left; }
+        .timeline-marker { position: absolute; top: var(--sp-md); width: 16px; height: 16px; background: var(--bg-primary); border: 3px solid var(--accent-primary); z-index: 10; transition: var(--transition); }
+        .timeline-item:nth-child(odd) .timeline-marker { right: -8px; }
+        .timeline-item:nth-child(even) .timeline-marker { left: -8px; }
+        .timeline-item:hover .timeline-marker, .timeline-item.active .timeline-marker { background: var(--accent-primary); transform: scale(1.2); }
+        .timeline-content { background: var(--bg-card); border: 1px solid var(--border-color); padding: var(--sp-md); transition: var(--transition); }
+        .timeline-item:hover .timeline-content, .timeline-item.active .timeline-content { border-color: var(--accent-primary); box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .timeline-date { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+        .timeline-company { font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; }
+        .timeline-role { font-size: 0.9rem; color: var(--text-secondary); }
+        .timeline-details { display: none; margin-top: var(--sp-sm); padding-top: var(--sp-sm); border-top: 1px solid var(--border-light); text-align: left; }
+        .timeline-item.active .timeline-details { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .timeline-about { font-size: 0.85rem; color: var(--text-muted); margin-bottom: var(--sp-sm); font-style: italic; }
+        .timeline-work { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+        .timeline-hint { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); margin-top: var(--sp-xs); opacity: 0.7; }
+        .timeline-item.active .timeline-hint { display: none; }
         
-        .companies-section {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-        .companies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: var(--sp-md);
-        }
-        .company-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: var(--sp-lg) var(--sp-md);
-            text-align: center;
-            transition: var(--transition);
-        }
-        .company-item:hover { border-color: var(--accent-primary); }
-        .company-name { font-weight: 600; font-size: 1rem; margin-bottom: 4px; }
-        .company-role {
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        @media (max-width: 968px) {
-            .hero-container { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
+        @media (max-width: 968px) { .hero-container { grid-template-columns: 1fr; } .nav-links { display: none; } }
+        @media (max-width: 768px) {
+            .timeline::before { left: 20px; }
+            .timeline-item { width: 100%; left: 0 !important; padding-left: 50px !important; padding-right: var(--sp-md) !important; text-align: left !important; }
+            .timeline-marker { left: 12px !important; right: auto !important; }
         }
     </style>
 </head>
 <body>
     <div class="bg-pattern"></div>
+
+    <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+    </button>
 
     <nav class="navbar">
         <div class="nav-container">
@@ -371,7 +136,6 @@
             <div class="nav-links">
                 <a href="#" class="nav-link active">Home</a>
                 <a href="#" class="nav-link">About</a>
-                <a href="#" class="nav-link">Experience</a>
                 <a href="#" class="nav-link">Projects</a>
                 <a href="#" class="nav-link">Hobbies</a>
                 <a href="#" class="nav-cta">Contact</a>
@@ -382,143 +146,127 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-label">Product Strategy & Data Science</div>
-                
+                <div class="hero-label">UCLA '27 / Product & Data</div>
                 <h1 class="hero-title">
-                    Building Products at the Intersection of <span class="highlight">Gaming</span> & <span class="highlight">Technology</span>
+                    Hey, I'm <span class="highlight">Aaron</span>.<br>
+                    I build products in <span class="highlight">gaming</span> and tech.
                 </h1>
-                
                 <p class="hero-subtitle">
-                    UCLA undergraduate combining strategic product thinking with data-driven insights. Currently shaping go-to-market strategies at Tencent and supporting commercial due diligence at Bain.
+                    Right now I'm doing product strategy at Tencent America and supporting due diligence at Bain. Before that, I shipped features at Tencent Games that drove 191% conversion lift, and built live-ops models at SEGA. I care about making products that players actually love.
                 </p>
-                
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <div class="stat-number">5+</div>
+                        <div class="stat-number">7</div>
                         <div class="stat-label">Companies</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">Projects</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">3.7</div>
                         <div class="stat-label">GPA</div>
                     </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8000+</div>
+                        <div class="stat-label">Gaming Hours</div>
+                    </div>
                 </div>
-                
                 <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary">
-                        View Projects
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="btn btn-secondary">Experience</a>
+                    <a href="#" class="btn btn-primary">See My Work →</a>
+                    <a href="#experience" class="btn btn-secondary">Experience</a>
                 </div>
             </div>
-            
             <div class="hero-visual">
                 <div class="hero-card">
                     <div class="hero-card-header">
                         <span class="status-dot"></span>
-                        <span class="status-text">Open to Opportunities</span>
+                        <span class="status-text">Open to Summer 2026</span>
                     </div>
                     <div class="hero-image-placeholder">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                            <circle cx="12" cy="7" r="4"/>
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
                         </svg>
-                        <span>Profile Photo</span>
+                        <span>Photo</span>
                     </div>
                     <div class="hero-card-footer">
-                        <span>UCLA '27</span>
-                        <span>Los Angeles, CA</span>
+                        <span>Stats & Data Science</span>
+                        <span>Los Angeles</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section" id="objectives">
+    <section class="section timeline-section" id="experience">
         <div class="section-container">
             <div class="section-header">
-                <div class="section-label">// Focus Areas</div>
-                <h2 class="section-title">What I'm Building Towards</h2>
-                <p class="section-subtitle">
-                    Combining strategic consulting with product execution to drive impact in the gaming industry.
-                </p>
+                <div class="section-label">// 实习经历</div>
+                <h2 class="section-title">Where I've Worked</h2>
+                <p class="section-subtitle">Click on any role to see what I did there.</p>
             </div>
             
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-icon">◆</div>
-                    <h3 class="card-title">Product Strategy</h3>
-                    <p class="card-description">
-                        Authoring strategic analyses on GTM strategies, competitive threats, and market opportunities.
-                    </p>
-                    <div class="card-tags">
-                        <span class="tag">GTM Strategy</span>
-                        <span class="tag">Market Analysis</span>
-                        <span class="tag">User Research</span>
+            <div class="timeline">
+                <div class="timeline-item" onclick="this.classList.toggle('active')">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Nov 2025 — Present</div>
+                        <div class="timeline-company">Bain & Company</div>
+                        <div class="timeline-role">Part-Time Assistant, Greater China</div>
+                        <div class="timeline-hint">Click to expand</div>
+                        <div class="timeline-details">
+                            <p class="timeline-about">Global management consulting firm, one of the "Big Three" (MBB).</p>
+                            <p class="timeline-work">Running commercial due diligence on TMT deals—synthesizing fragmented data to validate investment hypotheses and building market sizing models.</p>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="card">
-                    <div class="card-icon">◆</div>
-                    <h3 class="card-title">Data Science</h3>
-                    <p class="card-description">
-                        Applying machine learning and statistical analysis to uncover insights and build predictive models.
-                    </p>
-                    <div class="card-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Machine Learning</span>
-                        <span class="tag">SQL</span>
+                <div class="timeline-item" onclick="this.classList.toggle('active')">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Sep 2025 — Present</div>
+                        <div class="timeline-company">Tencent America</div>
+                        <div class="timeline-role">Product Strategy Intern, IEGG</div>
+                        <div class="timeline-hint">Click to expand</div>
+                        <div class="timeline-details">
+                            <p class="timeline-about">Tencent's Interactive Entertainment Global Group handles publishing and strategy for games outside China.</p>
+                            <p class="timeline-work">Provided the user insight that pivoted VALORANT Mobile's pre-reg campaign—drove 70M+ signups and viral social buzz.</p>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="card">
-                    <div class="card-icon">◆</div>
-                    <h3 class="card-title">Gaming Industry</h3>
-                    <p class="card-description">
-                        Deep passion backed by 8000+ hours of gameplay. Understanding player psychology and live-ops.
-                    </p>
-                    <div class="card-tags">
-                        <span class="tag">Live Ops</span>
-                        <span class="tag">Player Experience</span>
-                        <span class="tag">GaaS</span>
+                <div class="timeline-item" onclick="this.classList.toggle('active')">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Jun 2025 — Sep 2025</div>
+                        <div class="timeline-company">Tencent Games</div>
+                        <div class="timeline-role">Product Management Intern, Shenzhen</div>
+                        <div class="timeline-hint">Click to expand</div>
+                        <div class="timeline-details">
+                            <p class="timeline-about">Tencent's gaming division—world's largest game company by revenue.</p>
+                            <p class="timeline-work">Owned a desktop pet feature end-to-end that converted 191% more silent users into UGC contributors. Led a team to ship a co-op rhythm game (Silver Award).</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" onclick="this.classList.toggle('active')">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Mar 2025 — Jun 2025</div>
+                        <div class="timeline-company">Sega of America</div>
+                        <div class="timeline-role">Strategic Consultant, Marketing</div>
+                        <div class="timeline-hint">Click to expand</div>
+                        <div class="timeline-details">
+                            <p class="timeline-about">Japanese gaming giant behind Sonic, Yakuza, and Atlus (Persona).</p>
+                            <p class="timeline-work">Built a live-ops lifecycle model by analyzing 3,000+ updates across 20+ GaaS titles. Delivered a strategy playbook projecting 15% ARPU increase.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section companies-section">
-        <div class="section-container">
-            <div class="section-header">
-                <div class="section-label">// Experience</div>
-                <h2 class="section-title">Companies I've Worked With</h2>
-            </div>
-            
-            <div class="companies-grid">
-                <div class="company-item">
-                    <div class="company-name">Tencent America</div>
-                    <div class="company-role">Product Strategy Intern</div>
-                </div>
-                <div class="company-item">
-                    <div class="company-name">Bain & Company</div>
-                    <div class="company-role">Part-Time Assistant</div>
-                </div>
-                <div class="company-item">
-                    <div class="company-name">Tencent Games</div>
-                    <div class="company-role">Product Management Intern</div>
-                </div>
-                <div class="company-item">
-                    <div class="company-name">Sega of America</div>
-                    <div class="company-role">Strategic Consultant</div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <script>
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+        }
+    </script>
 </body>
 </html>

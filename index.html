@@ -3,16 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aaron Wen - Product Strategy & Data Science. UCLA student building impactful products in gaming and technology.">
-    <title>Aaron Wen | Product Strategy & Data Science</title>
+    <meta name="description" content="Aaron Wen - Product Strategy & Data Science. UCLA student working in gaming and tech.">
+    <title>Aaron Wen | Product & Data</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230a7ea4' width='100' height='100'/><text y='.9em' x='15' font-size='70' fill='white'>A</text></svg>">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Background Pattern -->
     <div class="bg-pattern"></div>
-    <div class="corner-decoration top-right"></div>
-    <div class="corner-decoration bottom-left"></div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+    </button>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -22,7 +30,6 @@
             <div class="nav-links">
                 <a href="index.html" class="nav-link active">Home</a>
                 <a href="pages/about.html" class="nav-link">About</a>
-                <a href="pages/experience.html" class="nav-link">Experience</a>
                 <a href="pages/projects.html" class="nav-link">Projects</a>
                 <a href="pages/hobbies.html" class="nav-link">Hobbies</a>
                 <a href="#contact" class="nav-cta">Contact</a>
@@ -40,39 +47,40 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-label">Product Strategy & Data Science</div>
+                <div class="hero-label">UCLA '27 / Product & Data</div>
                 
                 <h1 class="hero-title">
-                    Building Products at the Intersection of <span class="highlight">Gaming</span> & <span class="highlight">Technology</span>
+                    Hey, I'm <span class="highlight">Aaron</span>.<br>
+                    I build products in <span class="highlight">gaming</span> and tech.
                 </h1>
                 
                 <p class="hero-subtitle">
-                    UCLA undergraduate combining strategic product thinking with data-driven insights. Currently shaping go-to-market strategies at Tencent and supporting commercial due diligence at Bain.
+                    Right now I'm doing product strategy at Tencent America and supporting due diligence at Bain. Before that, I shipped features at Tencent Games that drove 191% conversion lift, and built live-ops models at SEGA. I care about making products that players actually love.
                 </p>
                 
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <div class="stat-number">5+</div>
+                        <div class="stat-number">7</div>
                         <div class="stat-label">Companies</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">Projects</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">3.7</div>
                         <div class="stat-label">GPA</div>
                     </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8000+</div>
+                        <div class="stat-label">Gaming Hours</div>
+                    </div>
                 </div>
                 
                 <div class="hero-buttons">
                     <a href="pages/projects.html" class="btn btn-primary">
-                        View Projects
+                        See My Work
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </a>
-                    <a href="pages/experience.html" class="btn btn-secondary">Experience</a>
+                    <a href="#experience" class="btn btn-secondary">Experience</a>
                 </div>
             </div>
             
@@ -80,7 +88,7 @@
                 <div class="hero-card">
                     <div class="hero-card-header">
                         <span class="status-dot"></span>
-                        <span class="status-text">Open to Opportunities</span>
+                        <span class="status-text">Open to Summer 2026</span>
                     </div>
                     
                     <div class="hero-image-placeholder">
@@ -88,37 +96,26 @@
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                             <circle cx="12" cy="7" r="4"/>
                         </svg>
-                        <span>Profile Photo</span>
+                        <span>Photo</span>
                     </div>
                     
                     <div class="hero-card-footer">
-                        <span>UCLA '27</span>
-                        <span>Los Angeles, CA</span>
-                    </div>
-                </div>
-                
-                <div class="info-cards">
-                    <div class="info-card">
-                        <div class="info-card-label">Current</div>
-                        <div class="info-card-value">Tencent America</div>
-                    </div>
-                    <div class="info-card">
-                        <div class="info-card-label">Focus</div>
-                        <div class="info-card-value">Gaming Strategy</div>
+                        <span>Stats & Data Science</span>
+                        <span>Los Angeles</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Career Objectives -->
-    <section class="section" id="objectives">
+    <!-- What I Do -->
+    <section class="section" id="focus">
         <div class="section-container">
             <div class="section-header">
-                <div class="section-label">// Focus Areas</div>
-                <h2 class="section-title">What I'm Building Towards</h2>
+                <div class="section-label">// What I Focus On</div>
+                <h2 class="section-title">Three things I care about</h2>
                 <p class="section-subtitle">
-                    Combining strategic consulting with product execution to drive impact in the gaming industry.
+                    I like solving hard problems at the intersection of strategy, data, and user experience. These are the areas where I spend most of my time.
                 </p>
             </div>
             
@@ -127,10 +124,10 @@
                     <div class="card-icon">◆</div>
                     <h3 class="card-title">Product Strategy</h3>
                     <p class="card-description">
-                        Authoring strategic analyses on GTM strategies, competitive threats, and market opportunities. Translating insights into actionable product decisions.
+                        I've written GTM strategies, competitive analyses, and market sizing models. At Tencent, my user insight helped drive 70M+ pre-registrations for VALORANT Mobile. I like connecting market signals to product decisions.
                     </p>
                     <div class="card-tags">
-                        <span class="tag">GTM Strategy</span>
+                        <span class="tag">GTM</span>
                         <span class="tag">Market Analysis</span>
                         <span class="tag">User Research</span>
                     </div>
@@ -140,20 +137,20 @@
                     <div class="card-icon">◆</div>
                     <h3 class="card-title">Data Science</h3>
                     <p class="card-description">
-                        Applying machine learning and statistical analysis to uncover insights. Building predictive models and dynamic market sizing frameworks.
+                        I use Python, SQL, and ML to find patterns and make predictions. Built dashboards tracking DAU, retention, and conversion at SEGA. My academic work covers everything from skin cancer prediction to crypto price modeling.
                     </p>
                     <div class="card-tags">
                         <span class="tag">Python</span>
-                        <span class="tag">Machine Learning</span>
                         <span class="tag">SQL</span>
+                        <span class="tag">Machine Learning</span>
                     </div>
                 </div>
                 
                 <div class="card fade-in">
                     <div class="card-icon">◆</div>
-                    <h3 class="card-title">Gaming Industry</h3>
+                    <h3 class="card-title">Gaming</h3>
                     <p class="card-description">
-                        Deep passion backed by 8000+ hours of gameplay. Understanding player psychology, live-ops lifecycles, and community dynamics.
+                        8000+ hours across League, TFT (Master), Arknights, and FGO. This isn't just a hobby—it's how I understand player psychology, live-ops cadences, and what makes games sticky. Every game I play is also a case study.
                     </p>
                     <div class="card-tags">
                         <span class="tag">Live Ops</span>
@@ -165,106 +162,122 @@
         </div>
     </section>
 
-    <!-- Companies -->
-    <section class="section companies-section">
+    <!-- Experience Timeline -->
+    <section class="section timeline-section" id="experience">
         <div class="section-container">
             <div class="section-header">
-                <div class="section-label">// Experience</div>
-                <h2 class="section-title">Companies I've Worked With</h2>
-            </div>
-            
-            <div class="companies-grid">
-                <div class="company-item fade-in">
-                    <div class="company-name">Tencent America</div>
-                    <div class="company-role">Product Strategy Intern</div>
-                </div>
-                <div class="company-item fade-in">
-                    <div class="company-name">Bain & Company</div>
-                    <div class="company-role">Part-Time Assistant</div>
-                </div>
-                <div class="company-item fade-in">
-                    <div class="company-name">Tencent Games</div>
-                    <div class="company-role">Product Management Intern</div>
-                </div>
-                <div class="company-item fade-in">
-                    <div class="company-name">Sega of America</div>
-                    <div class="company-role">Strategic Consultant</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Projects -->
-    <section class="section" id="projects">
-        <div class="section-container">
-            <div class="section-header">
-                <div class="section-label">// Selected Work</div>
-                <h2 class="section-title">Featured Projects</h2>
+                <div class="section-label">// 实习经历</div>
+                <h2 class="section-title">Where I've Worked</h2>
                 <p class="section-subtitle">
-                    Key initiatives and deliverables across product strategy, product management, and data science.
+                    Click on any role to see what I did there. Started in journalism, pivoted to gaming and tech.
                 </p>
             </div>
             
-            <div class="cards-grid">
-                <div class="project-card fade-in" data-category="strategy">
-                    <div class="project-image">PROJECT PREVIEW</div>
-                    <div class="project-content">
-                        <div class="project-category">Product Strategy</div>
-                        <h3 class="project-title">VALORANT Mobile GTM Strategy</h3>
-                        <p class="project-description">
-                            Provided foundational user insight for VALORANT Mobile's launch, pivoting campaign from generic giveaways to a high-impact pre-registration event.
-                        </p>
-                        <div class="card-tags">
-                            <span class="tag">GTM</span>
-                            <span class="tag">User Insight</span>
-                            <span class="tag">Mobile</span>
+            <div class="timeline">
+                <!-- Bain & Company -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Nov 2025 — Present</div>
+                        <div class="timeline-company">Bain & Company</div>
+                        <div class="timeline-role">Part-Time Assistant, Greater China</div>
+                        <div class="timeline-hint">Click to expand</div>
+                        <div class="timeline-details">
+                            <p class="timeline-about">Global management consulting firm, one of the "Big Three" (MBB). Known for private equity due diligence and results-driven approach.</p>
+                            <p class="timeline-work">Running commercial due diligence on TMT deals—synthesizing fragmented data to validate investment hypotheses, building market sizing models, and structuring narratives for C-suite deliverables.</p>
                         </div>
-                        <div class="project-metric">70M+ Pre-registrations</div>
                     </div>
                 </div>
                 
-                <div class="project-card fade-in" data-category="product">
-                    <div class="project-image">PROJECT PREVIEW</div>
-                    <div class="project-content">
-                        <div class="project-category">Product Management</div>
-                        <h3 class="project-title">Desktop Pet Feature</h3>
-                        <p class="project-description">
-                            Owned end-to-end lifecycle of a core initiative designed to reactivate dormant users and deepen platform engagement at Tencent Academy.
-                        </p>
-                        <div class="card-tags">
-                            <span class="tag">PM</span>
-                            <span class="tag">UGC</span>
-                            <span class="tag">Engagement</span>
+                <!-- Tencent America -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Sep 2025 — Present</div>
+                        <div class="timeline-company">Tencent America</div>
+                        <div class="timeline-role">Product Strategy Intern, IEGG</div>
+                        <div class="timeline-hint">Click to expand</div>
+                        <div class="timeline-details">
+                            <p class="timeline-about">Tencent's Interactive Entertainment Global Group handles publishing and strategy for games outside China, including partnerships with Riot.</p>
+                            <p class="timeline-work">Writing strategic analyses on GTM, competitive threats (HoYoverse, Activision), and China's mini-game market. Provided the user insight that pivoted VALORANT Mobile's pre-reg campaign—drove 70M+ signups and viral social buzz.</p>
                         </div>
-                        <div class="project-metric">191% Conversion Lift</div>
                     </div>
                 </div>
                 
-                <div class="project-card fade-in" data-category="strategy">
-                    <div class="project-image">PROJECT PREVIEW</div>
-                    <div class="project-content">
-                        <div class="project-category">Strategic Consulting</div>
-                        <h3 class="project-title">Live-Ops Lifecycle Model</h3>
-                        <p class="project-description">
-                            Defined a foundational live-ops model by analyzing 3,000+ updates from 20+ top GaaS titles. Delivered strategy playbook to SEGA leadership.
-                        </p>
-                        <div class="card-tags">
-                            <span class="tag">GaaS</span>
-                            <span class="tag">SQL</span>
-                            <span class="tag">Tableau</span>
+                <!-- Tencent Games -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Jun 2025 — Sep 2025</div>
+                        <div class="timeline-company">Tencent Games</div>
+                        <div class="timeline-role">Product Management Intern, Shenzhen</div>
+                        <div class="timeline-hint">Click to expand</div>
+                        <div class="timeline-details">
+                            <p class="timeline-about">Tencent's gaming division—world's largest game company by revenue. Owns Riot, Supercell stakes, and publishes most major titles in China.</p>
+                            <p class="timeline-work">Owned a desktop pet feature end-to-end that converted 191% more silent users into UGC contributors. Led a 3-person team to ship a co-op rhythm game in an internal jam (Silver Award). Redesigned Tencent Academy homepage with new analytics dashboard.</p>
                         </div>
-                        <div class="project-metric">15% Projected ARPU Increase</div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="text-center mt-xl">
-                <a href="pages/projects.html" class="btn btn-primary">
-                    View All Projects
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
+                
+                <!-- SEGA -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Mar 2025 — Jun 2025</div>
+                        <div class="timeline-company">Sega of America</div>
+                        <div class="timeline-role">Strategic Consultant, Marketing</div>
+                        <div class="timeline-hint">Click to expand</div>
+                        <div class="timeline-details">
+                            <p class="timeline-about">Japanese gaming giant behind Sonic, Yakuza, and Atlus (Persona). One of the oldest names in gaming with a strong IP portfolio.</p>
+                            <p class="timeline-work">Built a live-ops lifecycle model by analyzing 3,000+ updates across 20+ GaaS titles. Created Tableau dashboards for DAU/retention/conversion. Delivered a strategy playbook projecting 15% ARPU increase—got endorsement from Atlus Marketing Manager.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- China Daily -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Oct 2024 — Mar 2025</div>
+                        <div class="timeline-company">China Daily</div>
+                        <div class="timeline-role">Journalist Intern</div>
+                        <div class="timeline-hint">Click to expand</div>
+                        <div class="timeline-details">
+                            <p class="timeline-about">China's largest English-language newspaper, with global distribution. Covers business, culture, and policy for international audiences.</p>
+                            <p class="timeline-work">Covered tech and business stories, conducted interviews, and learned how to distill complex topics into clear narratives. This experience shaped how I write strategy docs today.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mymentor -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Jun 2024 — Oct 2024</div>
+                        <div class="timeline-company">Mymentor</div>
+                        <div class="timeline-role">Marketing & Front-End Intern</div>
+                        <div class="timeline-hint">Click to expand</div>
+                        <div class="timeline-details">
+                            <p class="timeline-about">EdTech startup connecting students with mentors for career guidance and college prep.</p>
+                            <p class="timeline-work">Wore two hats: ran marketing campaigns while also building front-end features. First real exposure to product thinking—learned that good marketing and good product are inseparable.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Xinhua -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Jun 2022 — Sep 2022</div>
+                        <div class="timeline-company">Xinhua News Agency</div>
+                        <div class="timeline-role">Reporter Assistant</div>
+                        <div class="timeline-hint">Click to expand</div>
+                        <div class="timeline-details">
+                            <p class="timeline-about">China's official state news agency and one of the world's largest news organizations. Covers everything from politics to sports.</p>
+                            <p class="timeline-work">My first professional experience. Assisted reporters with research, fact-checking, and story development. Learned the fundamentals of clear communication and working under deadline pressure.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -273,10 +286,10 @@
     <section class="section" id="contact">
         <div class="section-container">
             <div class="section-header">
-                <div class="section-label">// Get in Touch</div>
-                <h2 class="section-title">Let's Connect</h2>
+                <div class="section-label">// Let's Talk</div>
+                <h2 class="section-title">Get in Touch</h2>
                 <p class="section-subtitle">
-                    Interested in discussing opportunities or collaboration? Feel free to reach out.
+                    Looking for Summer 2026 opportunities in product, strategy, or gaming. Always down to chat about games, data, or interesting problems.
                 </p>
             </div>
             
@@ -284,19 +297,19 @@
                 <div class="card fade-in" style="text-align: center;">
                     <div class="card-icon">✉</div>
                     <h3 class="card-title">Email</h3>
-                    <p class="card-description">linmengfdm@gmail.com</p>
+                    <p class="card-description" style="margin-bottom: 0;">linmengfdm@gmail.com</p>
                 </div>
                 
                 <div class="card fade-in" style="text-align: center;">
                     <div class="card-icon">◆</div>
                     <h3 class="card-title">LinkedIn</h3>
-                    <p class="card-description">linkedin.com/in/aaronwen</p>
+                    <p class="card-description" style="margin-bottom: 0;">linkedin.com/in/aaronwen</p>
                 </div>
                 
                 <div class="card fade-in" style="text-align: center;">
-                    <div class="card-icon">⌘</div>
+                    <div class="card-icon">☎</div>
                     <h3 class="card-title">Phone</h3>
-                    <p class="card-description">+1 (571) 413-7511</p>
+                    <p class="card-description" style="margin-bottom: 0;">+1 (571) 413-7511</p>
                 </div>
             </div>
         </div>
@@ -308,26 +321,26 @@
             <div class="footer-brand">
                 <div class="footer-logo">Aaron Wen</div>
                 <p class="footer-description">
-                    Product Strategy & Data Science. Building impactful products at the intersection of gaming and technology.
+                    Product strategy, data science, and way too many hours in League.
                 </p>
             </div>
             
             <div>
-                <h4 class="footer-title">Navigation</h4>
+                <h4 class="footer-title">Pages</h4>
                 <div class="footer-links">
                     <a href="index.html" class="footer-link">Home</a>
                     <a href="pages/about.html" class="footer-link">About</a>
-                    <a href="pages/experience.html" class="footer-link">Experience</a>
                     <a href="pages/projects.html" class="footer-link">Projects</a>
+                    <a href="pages/hobbies.html" class="footer-link">Hobbies</a>
                 </div>
             </div>
             
             <div>
-                <h4 class="footer-title">Projects</h4>
+                <h4 class="footer-title">Work</h4>
                 <div class="footer-links">
                     <a href="pages/projects.html" class="footer-link">Strategy</a>
                     <a href="pages/projects.html" class="footer-link">Product</a>
-                    <a href="pages/projects.html" class="footer-link">Data Science</a>
+                    <a href="pages/projects.html" class="footer-link">Data</a>
                 </div>
             </div>
             
@@ -342,7 +355,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>© 2025 Aaron Wen. All rights reserved.</p>
+            <p>© 2025 Aaron Wen</p>
             <div class="social-links">
                 <a href="#" class="social-link" aria-label="LinkedIn">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">

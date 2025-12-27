@@ -3,251 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hobbies - Aaron Wen's creative pursuits and gaming interests.">
     <title>Hobbies | Aaron Wen</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230a7ea4' width='100' height='100'/><text y='.9em' x='15' font-size='70' fill='white'>A</text></svg>">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <div class="bg-pattern"></div>
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
 
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="../index.html" class="nav-logo">Aaron Wen</a>
             <div class="nav-links">
                 <a href="../index.html" class="nav-link">Home</a>
                 <a href="about.html" class="nav-link">About</a>
-                <a href="experience.html" class="nav-link">Experience</a>
                 <a href="projects.html" class="nav-link">Projects</a>
                 <a href="hobbies.html" class="nav-link active">Hobbies</a>
                 <a href="../index.html#contact" class="nav-cta">Contact</a>
             </div>
-            <button class="nav-toggle" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
         </div>
     </nav>
 
-    <!-- Page Header -->
     <header class="page-header">
         <div class="page-header-content">
             <div class="section-label">// Hobbies</div>
-            <h1 class="page-title">Beyond Work</h1>
-            <p class="page-subtitle">Gaming, creative writing, and other personal interests.</p>
+            <h1 class="page-title">What I do for fun</h1>
+            <p class="page-subtitle">Mostly games. Also writing and making things.</p>
         </div>
     </header>
 
-    <!-- Hobbies Tabs -->
     <section class="section">
         <div class="section-container">
-            <div class="hobbies-tabs">
-                <button class="tab-btn active" data-tab="gaming">Gaming</button>
-                <button class="tab-btn" data-tab="art">Art & Design</button>
-                <button class="tab-btn" data-tab="writing">Writing</button>
-                <button class="tab-btn" data-tab="videos">Videos</button>
+            <div class="section-header">
+                <div class="section-label">// Gaming Stats</div>
+                <h2 class="section-title">The numbers</h2>
+                <p class="section-subtitle">
+                    I've put real time into these games. It's not just entertainment—every one teaches me something about design, engagement, or community.
+                </p>
             </div>
             
-            <!-- Gaming Tab -->
-            <div class="tab-content active" id="gaming">
-                <div class="section-header">
-                    <div class="section-label">// Gaming Profile</div>
-                    <h2 class="section-title">8000+ Hours of Experience</h2>
-                    <p class="section-subtitle">
-                        My gaming background isn't just a hobby—it's the foundation of my understanding of player psychology, engagement loops, and community dynamics.
-                    </p>
-                </div>
-                
-                <div class="gaming-stats">
-                    <div class="gaming-stat-card fade-in">
-                        <h3 class="gaming-stat-game">League of Legends</h3>
-                        <div class="gaming-stat-row">
-                            <span class="gaming-stat-label">Total Hours</span>
-                            <span class="gaming-stat-value">3000+</span>
-                        </div>
-                        <div class="gaming-stat-row">
-                            <span class="gaming-stat-label">Experience</span>
-                            <span class="gaming-stat-value">8+ Years</span>
-                        </div>
-                        <div class="gaming-stat-row">
-                            <span class="gaming-stat-label">Insight</span>
-                            <span class="gaming-stat-value">MOBA Mechanics, Meta Evolution</span>
-                        </div>
-                    </div>
-                    
-                    <div class="gaming-stat-card fade-in">
-                        <h3 class="gaming-stat-game">Teamfight Tactics</h3>
-                        <div class="gaming-stat-row">
-                            <span class="gaming-stat-label">Total Hours</span>
-                            <span class="gaming-stat-value">1000+</span>
-                        </div>
-                        <div class="gaming-stat-row">
-                            <span class="gaming-stat-label">Peak Rank</span>
-                            <span class="gaming-stat-value">Master</span>
-                        </div>
-                        <div class="gaming-stat-row">
-                            <span class="gaming-stat-label">Insight</span>
-                            <span class="gaming-stat-value">Auto-battler Strategy, Economy</span>
-                        </div>
-                    </div>
-                    
-                    <div class="gaming-stat-card fade-in">
-                        <h3 class="gaming-stat-game">Arknights</h3>
-                        <div class="gaming-stat-row">
-                            <span class="gaming-stat-label">Total Hours</span>
-                            <span class="gaming-stat-value">1000+</span>
-                        </div>
-                        <div class="gaming-stat-row">
-                            <span class="gaming-stat-label">Game Type</span>
-                            <span class="gaming-stat-value">Tower Defense Gacha</span>
-                        </div>
-                        <div class="gaming-stat-row">
-                            <span class="gaming-stat-label">Insight</span>
-                            <span class="gaming-stat-value">Live-Ops, Monetization, Narrative</span>
-                        </div>
-                    </div>
-                    
-                    <div class="gaming-stat-card fade-in">
-                        <h3 class="gaming-stat-game">Fate/Grand Order</h3>
-                        <div class="gaming-stat-row">
-                            <span class="gaming-stat-label">Game Type</span>
-                            <span class="gaming-stat-value">RPG Gacha</span>
-                        </div>
-                        <div class="gaming-stat-row">
-                            <span class="gaming-stat-label">Insight</span>
-                            <span class="gaming-stat-value">Narrative Design, IP Leverage</span>
-                        </div>
+            <div class="cards-grid">
+                <div class="card fade-in">
+                    <h3 class="card-title">League of Legends</h3>
+                    <p class="card-description">3000+ hours over 8+ years. I understand MOBAs at a deep level—champion balance, meta shifts, esports ecosystem. This game taught me how live-ops can keep a game relevant for a decade.</p>
+                    <div class="card-tags">
+                        <span class="tag">3000+ Hours</span>
+                        <span class="tag">8+ Years</span>
                     </div>
                 </div>
                 
-                <div class="card mt-xl fade-in" style="max-width: 800px;">
-                    <h3 class="card-title">How Gaming Informs My Work</h3>
+                <div class="card fade-in">
+                    <h3 class="card-title">Teamfight Tactics</h3>
+                    <p class="card-description">1000+ hours. Hit Master rank. Auto-battlers are fascinating from a design perspective—so much complexity with minimal inputs. Taught me about economy systems and adaptive strategy.</p>
+                    <div class="card-tags">
+                        <span class="tag">1000+ Hours</span>
+                        <span class="tag">Master Rank</span>
+                    </div>
+                </div>
+                
+                <div class="card fade-in">
+                    <h3 class="card-title">Arknights</h3>
+                    <p class="card-description">1000+ hours. Tower defense gacha with incredible worldbuilding. I study how they do live-ops, limited banners, and narrative integration. The art direction is top-tier.</p>
+                    <div class="card-tags">
+                        <span class="tag">1000+ Hours</span>
+                        <span class="tag">Tower Defense</span>
+                    </div>
+                </div>
+                
+                <div class="card fade-in">
+                    <h3 class="card-title">Fate/Grand Order</h3>
+                    <p class="card-description">Classic gacha RPG. Interesting case study in IP leverage and how narrative quality can compensate for dated gameplay. The Type-Moon universe keeps people engaged for years.</p>
+                    <div class="card-tags">
+                        <span class="tag">Gacha</span>
+                        <span class="tag">Narrative</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--bg-secondary); border-top: 1px solid var(--border-color);">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label">// Other Stuff</div>
+                <h2 class="section-title">Creative side</h2>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="card fade-in">
+                    <h3 class="card-title">Science Fiction Writing</h3>
                     <p class="card-description">
-                        Every game I play is also a case study. I analyze engagement mechanics, monetization strategies, update cadences, and community management. This deep familiarity with player expectations helps me build better products and provide more actionable strategic insights.
-                    </p>
-                    <p class="card-description" style="margin-bottom: 0;">
-                        At Sega, my live-ops model drew directly from patterns I'd observed across hundreds of game updates. At Tencent, my understanding of what makes pre-registration campaigns viral came from years of participating in them as a player.
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Art Tab -->
-            <div class="tab-content" id="art">
-                <div class="section-header">
-                    <div class="section-label">// Art & Design</div>
-                    <h2 class="section-title">Visual Creations</h2>
-                    <p class="section-subtitle">
-                        Exploring visual design through digital art and AI-assisted creation.
+                        I write sci-fi in Chinese and I'm translating some of it to English. Themes: technology, humanity, and futures that feel plausible. Writing helps me think clearly about complex ideas.
                     </p>
                 </div>
                 
-                <div class="gallery-grid">
-                    <div class="gallery-item fade-in">Art 1</div>
-                    <div class="gallery-item fade-in">Art 2</div>
-                    <div class="gallery-item fade-in">Art 3</div>
-                    <div class="gallery-item fade-in">Art 4</div>
-                    <div class="gallery-item fade-in">Art 5</div>
-                    <div class="gallery-item fade-in">Art 6</div>
-                </div>
-                
-                <div class="card mt-xl fade-in" style="max-width: 600px;">
-                    <p class="card-description" style="margin-bottom: 0;">
-                        I use tools like Midjourney and Adobe Creative Suite to explore visual concepts, create presentation materials, and develop UI mockups for personal projects.
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Writing Tab -->
-            <div class="tab-content" id="writing">
-                <div class="section-header">
-                    <div class="section-label">// Creative Writing</div>
-                    <h2 class="section-title">Science Fiction</h2>
-                    <p class="section-subtitle">
-                        Original stories exploring technology, humanity, and the future.
+                <div class="card fade-in">
+                    <h3 class="card-title">AI Art / Design</h3>
+                    <p class="card-description">
+                        Experimenting with Midjourney and other tools. Mostly for fun, but also useful for mockups and presentations. I'm interested in how AI changes creative workflows.
                     </p>
                 </div>
                 
-                <div class="cards-grid" style="max-width: 800px;">
-                    <div class="card fade-in">
-                        <div class="card-icon">◆</div>
-                        <h3 class="card-title">Original Chinese Stories</h3>
-                        <p class="card-description">
-                            Working on science fiction narratives that explore the intersection of technology and human experience. Currently translating selected works from Chinese to English.
-                        </p>
-                        <div class="card-tags">
-                            <span class="tag">Sci-Fi</span>
-                            <span class="tag">Chinese</span>
-                            <span class="tag">Translation</span>
-                        </div>
-                    </div>
-                    
-                    <div class="card fade-in">
-                        <div class="card-icon">◆</div>
-                        <h3 class="card-title">Game Narrative Interest</h3>
-                        <p class="card-description">
-                            Deep interest in environmental storytelling and emotional game design. Particularly drawn to how games like Arknights and Genshin Impact weave narrative into gameplay.
-                        </p>
-                        <div class="card-tags">
-                            <span class="tag">Narrative Design</span>
-                            <span class="tag">Environmental Storytelling</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Videos Tab -->
-            <div class="tab-content" id="videos">
-                <div class="section-header">
-                    <div class="section-label">// Video Content</div>
-                    <h2 class="section-title">Video Projects</h2>
-                    <p class="section-subtitle">
-                        Video editing and content creation projects.
-                    </p>
-                </div>
-                
-                <div class="gallery-grid">
-                    <div class="gallery-item fade-in" style="aspect-ratio: 16/9;">Video 1</div>
-                    <div class="gallery-item fade-in" style="aspect-ratio: 16/9;">Video 2</div>
-                    <div class="gallery-item fade-in" style="aspect-ratio: 16/9;">Video 3</div>
-                    <div class="gallery-item fade-in" style="aspect-ratio: 16/9;">Video 4</div>
-                </div>
-                
-                <div class="card mt-xl fade-in" style="max-width: 600px;">
-                    <p class="card-description" style="margin-bottom: 0;">
-                        Experience with Adobe Premiere Pro and After Effects for video editing and motion graphics. Skills developed through personal projects and organization marketing work.
+                <div class="card fade-in">
+                    <h3 class="card-title">Video Editing</h3>
+                    <p class="card-description">
+                        Premiere Pro and After Effects. Made content for student orgs and personal projects. It's a good skill to have when you need to communicate ideas visually.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <div class="footer-logo">Aaron Wen</div>
-                <p class="footer-description">Product Strategy & Data Science.</p>
-            </div>
-            <div>
-                <h4 class="footer-title">Navigation</h4>
-                <div class="footer-links">
-                    <a href="../index.html" class="footer-link">Home</a>
-                    <a href="about.html" class="footer-link">About</a>
-                    <a href="experience.html" class="footer-link">Experience</a>
-                    <a href="projects.html" class="footer-link">Projects</a>
-                </div>
-            </div>
-            <div>
-                <h4 class="footer-title">Connect</h4>
-                <div class="footer-links">
-                    <a href="#" class="footer-link">LinkedIn</a>
-                    <a href="#" class="footer-link">GitHub</a>
-                    <a href="mailto:linmengfdm@gmail.com" class="footer-link">Email</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 Aaron Wen. All rights reserved.</p>
+        <div class="footer-bottom" style="border-top: none; margin-top: 0;">
+            <p>© 2025 Aaron Wen</p>
         </div>
     </footer>
 

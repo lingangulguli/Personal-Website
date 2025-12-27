@@ -3,241 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Projects - Aaron Wen's portfolio of product strategy, PM, and data science work.">
     <title>Projects | Aaron Wen</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230a7ea4' width='100' height='100'/><text y='.9em' x='15' font-size='70' fill='white'>A</text></svg>">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <div class="bg-pattern"></div>
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
 
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="../index.html" class="nav-logo">Aaron Wen</a>
             <div class="nav-links">
                 <a href="../index.html" class="nav-link">Home</a>
                 <a href="about.html" class="nav-link">About</a>
-                <a href="experience.html" class="nav-link">Experience</a>
                 <a href="projects.html" class="nav-link active">Projects</a>
                 <a href="hobbies.html" class="nav-link">Hobbies</a>
                 <a href="../index.html#contact" class="nav-cta">Contact</a>
             </div>
-            <button class="nav-toggle" aria-label="Toggle menu">
-                <span></span><span></span><span></span>
-            </button>
         </div>
     </nav>
 
-    <!-- Page Header -->
     <header class="page-header">
         <div class="page-header-content">
             <div class="section-label">// Projects</div>
-            <h1 class="page-title">Selected Work</h1>
-            <p class="page-subtitle">Product strategy, product management, and data science projects.</p>
+            <h1 class="page-title">Things I've built and shipped</h1>
+            <p class="page-subtitle">A mix of product work, strategy docs, and data projects.</p>
         </div>
     </header>
 
-    <!-- Projects -->
     <section class="section">
         <div class="section-container">
-            <div class="projects-filter">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="strategy">Strategy</button>
-                <button class="filter-btn" data-filter="product">Product</button>
-                <button class="filter-btn" data-filter="data">Data Science</button>
-            </div>
-            
             <div class="cards-grid">
-                <!-- VALORANT Mobile GTM -->
-                <div class="project-card fade-in" data-category="strategy">
-                    <div class="project-image">PROJECT PREVIEW</div>
-                    <div class="project-content">
-                        <div class="project-category">Product Strategy</div>
-                        <h3 class="project-title">VALORANT Mobile GTM Strategy</h3>
-                        <p class="project-description">
-                            Provided foundational user insight for VALORANT Mobile's Go-to-Market strategy at Tencent America. Pivoted the launch campaign from generic giveaways to a high-impact pre-registration event centered on the social value and intrinsic reward of unique game IDs.
-                        </p>
-                        <div class="card-tags">
-                            <span class="tag">GTM Strategy</span>
-                            <span class="tag">User Research</span>
-                            <span class="tag">Mobile Gaming</span>
-                        </div>
-                        <div class="project-metric">70M+ Pre-registrations</div>
+                <div class="card fade-in">
+                    <div class="card-icon">◆</div>
+                    <h3 class="card-title">VALORANT Mobile GTM</h3>
+                    <p class="card-description">
+                        Provided the user insight that changed VALORANT Mobile's pre-registration strategy. Instead of generic giveaways, we centered the campaign on the social value of unique game IDs. Result: 70M+ pre-registrations and viral social buzz.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Strategy</span>
+                        <span class="tag">GTM</span>
+                        <span class="tag">Tencent</span>
                     </div>
                 </div>
                 
-                <!-- Desktop Pet Feature -->
-                <div class="project-card fade-in" data-category="product">
-                    <div class="project-image">PROJECT PREVIEW</div>
-                    <div class="project-content">
-                        <div class="project-category">Product Management</div>
-                        <h3 class="project-title">Desktop Pet Feature</h3>
-                        <p class="project-description">
-                            Owned the end-to-end lifecycle of a desktop pet feature at Tencent Games, designed to reactivate dormant users and deepen platform engagement. Drove significant conversion of silent WAU into active UGC contributors.
-                        </p>
-                        <div class="card-tags">
-                            <span class="tag">Product Lifecycle</span>
-                            <span class="tag">UGC Platform</span>
-                            <span class="tag">Engagement</span>
-                        </div>
-                        <div class="project-metric">191% Conversion Lift</div>
+                <div class="card fade-in">
+                    <div class="card-icon">◆</div>
+                    <h3 class="card-title">Desktop Pet Feature</h3>
+                    <p class="card-description">
+                        Owned this feature end-to-end at Tencent Games. Goal was to reactivate dormant users. Shipped it, measured it, iterated. Final result: 191% lift in converting silent users to UGC contributors. Also sustained 35% DAU uplift and 73% better retention.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Product</span>
+                        <span class="tag">UGC</span>
+                        <span class="tag">Tencent</span>
                     </div>
                 </div>
                 
-                <!-- Live-Ops Model -->
-                <div class="project-card fade-in" data-category="strategy">
-                    <div class="project-image">PROJECT PREVIEW</div>
-                    <div class="project-content">
-                        <div class="project-category">Strategic Consulting</div>
-                        <h3 class="project-title">Live-Ops Lifecycle Model</h3>
-                        <p class="project-description">
-                            Defined a foundational live-ops lifecycle model at Sega by analyzing 3,000+ updates from 20+ top GaaS titles. Built Tableau dashboards tracking DAU, retention, and conversion metrics. Delivered strategy playbook to leadership.
-                        </p>
-                        <div class="card-tags">
-                            <span class="tag">GaaS Analysis</span>
-                            <span class="tag">SQL</span>
-                            <span class="tag">Tableau</span>
-                        </div>
-                        <div class="project-metric">15% Projected ARPU Increase</div>
+                <div class="card fade-in">
+                    <div class="card-icon">◆</div>
+                    <h3 class="card-title">Live-Ops Lifecycle Model</h3>
+                    <p class="card-description">
+                        Built this at SEGA by analyzing 3,000+ updates from 20+ top GaaS games. Created a framework for understanding update cadences, content types, and their impact on metrics. Delivered a playbook projecting 15% ARPU increase for new market entries.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Strategy</span>
+                        <span class="tag">GaaS</span>
+                        <span class="tag">SEGA</span>
                     </div>
                 </div>
                 
-                <!-- OH MY BOSS -->
-                <div class="project-card fade-in" data-category="product">
-                    <div class="project-image">PROJECT PREVIEW</div>
-                    <div class="project-content">
-                        <div class="project-category">Game Development</div>
-                        <h3 class="project-title">OH MY BOSS</h3>
-                        <p class="project-description">
-                            Led a 3-person cross-functional team as Producer & Designer in Tencent's internal MiniGame Jam. Shipped a co-op rhythm game inspired by It Takes Two, implementing Agile development and Sprint workflows for rapid iteration.
-                        </p>
-                        <div class="card-tags">
-                            <span class="tag">Game Design</span>
-                            <span class="tag">Agile</span>
-                            <span class="tag">Team Leadership</span>
-                        </div>
-                        <div class="project-metric">Silver Award</div>
+                <div class="card fade-in">
+                    <div class="card-icon">◆</div>
+                    <h3 class="card-title">OH MY BOSS</h3>
+                    <p class="card-description">
+                        Co-op rhythm game I made with a 2-person team during Tencent's internal game jam. I was producer and designer. Mechanics inspired by It Takes Two. Won Silver Award for innovative level design. Shipped in 48 hours using Agile sprints.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Game Dev</span>
+                        <span class="tag">Design</span>
+                        <span class="tag">Tencent</span>
                     </div>
                 </div>
                 
-                <!-- TMT Due Diligence -->
-                <div class="project-card fade-in" data-category="strategy">
-                    <div class="project-image">PROJECT PREVIEW</div>
-                    <div class="project-content">
-                        <div class="project-category">Commercial Due Diligence</div>
-                        <h3 class="project-title">TMT Sector Analysis</h3>
-                        <p class="project-description">
-                            Conducted rigorous commercial due diligence on the TMT sector at Bain & Company. Synthesized fragmented data points to validate investment hypotheses and identify competitive white spaces for high-priority strategic cases.
-                        </p>
-                        <div class="card-tags">
-                            <span class="tag">Due Diligence</span>
-                            <span class="tag">Market Sizing</span>
-                            <span class="tag">Investment</span>
-                        </div>
+                <div class="card fade-in">
+                    <div class="card-icon">◆</div>
+                    <h3 class="card-title">TMT Due Diligence</h3>
+                    <p class="card-description">
+                        Ongoing work at Bain. Can't say much, but I'm validating investment hypotheses, building market sizing models, and turning messy data into clear narratives for partners and clients.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Consulting</span>
+                        <span class="tag">DD</span>
+                        <span class="tag">Bain</span>
                     </div>
                 </div>
                 
-                <!-- Tencent Academy Redesign -->
-                <div class="project-card fade-in" data-category="product">
-                    <div class="project-image">PROJECT PREVIEW</div>
-                    <div class="project-content">
-                        <div class="project-category">Product Management</div>
-                        <h3 class="project-title">Tencent Academy Homepage Redesign</h3>
-                        <p class="project-description">
-                            Shipped a full redesign of the Tencent Academy homepage, launching core features including a new Creator Analytics Dashboard and a Tag-based content recommendation engine to personalize the user experience.
-                        </p>
-                        <div class="card-tags">
-                            <span class="tag">UX Design</span>
-                            <span class="tag">Analytics</span>
-                            <span class="tag">Personalization</span>
-                        </div>
-                        <div class="project-metric">35% DAU Uplift</div>
-                    </div>
-                </div>
-                
-                <!-- WeChat Mini Game Market -->
-                <div class="project-card fade-in" data-category="strategy">
-                    <div class="project-image">PROJECT PREVIEW</div>
-                    <div class="project-content">
-                        <div class="project-category">Market Analysis</div>
-                        <h3 class="project-title">WeChat Mini Game Market Report</h3>
-                        <p class="project-description">
-                            Authored comprehensive market analysis on China's WeChat Mini Game market (2025 Q2) at Tencent America. Report published externally as an industry benchmark for indie studios and strategic planning.
-                        </p>
-                        <div class="card-tags">
-                            <span class="tag">Market Research</span>
-                            <span class="tag">China Market</span>
-                            <span class="tag">Mini Games</span>
-                        </div>
-                        <div class="project-metric">Published Externally</div>
-                    </div>
-                </div>
-                
-                <!-- ML Project Placeholder -->
-                <div class="project-card fade-in" data-category="data">
-                    <div class="project-image">PROJECT PREVIEW</div>
-                    <div class="project-content">
-                        <div class="project-category">Machine Learning</div>
-                        <h3 class="project-title">Skin Cancer Prediction Model</h3>
-                        <p class="project-description">
-                            Academic project applying machine learning techniques for medical imaging classification. Built predictive models using Python, Scikit-learn, and PyTorch for skin cancer detection from dermoscopic images.
-                        </p>
-                        <div class="card-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">PyTorch</span>
-                            <span class="tag">Medical ML</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Crypto Prediction -->
-                <div class="project-card fade-in" data-category="data">
-                    <div class="project-image">PROJECT PREVIEW</div>
-                    <div class="project-content">
-                        <div class="project-category">Data Analysis</div>
-                        <h3 class="project-title">Cryptocurrency Price Prediction</h3>
-                        <p class="project-description">
-                            Comprehensive analysis using machine learning models for cryptocurrency price prediction. Created interactive web presentations for research findings using Python data visualization libraries.
-                        </p>
-                        <div class="card-tags">
-                            <span class="tag">Time Series</span>
-                            <span class="tag">Finance</span>
-                            <span class="tag">Visualization</span>
-                        </div>
+                <div class="card fade-in">
+                    <div class="card-icon">◆</div>
+                    <h3 class="card-title">Skin Cancer Prediction</h3>
+                    <p class="card-description">
+                        Academic ML project. Built a classifier for dermoscopic images using PyTorch. Learned a lot about image preprocessing, model architecture choices, and the gap between "works in notebook" and "actually useful."
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">ML</span>
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">Academic</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <div class="footer-logo">Aaron Wen</div>
-                <p class="footer-description">Product Strategy & Data Science.</p>
-            </div>
-            <div>
-                <h4 class="footer-title">Navigation</h4>
-                <div class="footer-links">
-                    <a href="../index.html" class="footer-link">Home</a>
-                    <a href="about.html" class="footer-link">About</a>
-                    <a href="experience.html" class="footer-link">Experience</a>
-                    <a href="projects.html" class="footer-link">Projects</a>
-                </div>
-            </div>
-            <div>
-                <h4 class="footer-title">Connect</h4>
-                <div class="footer-links">
-                    <a href="#" class="footer-link">LinkedIn</a>
-                    <a href="#" class="footer-link">GitHub</a>
-                    <a href="mailto:linmengfdm@gmail.com" class="footer-link">Email</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 Aaron Wen. All rights reserved.</p>
+        <div class="footer-bottom" style="border-top: none; margin-top: 0;">
+            <p>© 2025 Aaron Wen</p>
         </div>
     </footer>
 
