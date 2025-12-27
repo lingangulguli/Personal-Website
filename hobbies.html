@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aaron's Personal Interests - Art, Videos, and Creative Writing.">
+    <title>Hobbies | Aaron</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        /* Hobbies Page Specific Styles */
+        .hobby-section {
+            margin-bottom: var(--spacing-2xl);
+        }
+        
+        .hobby-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .hobby-icon-large {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: var(--radius-lg);
+            font-size: 1.75rem;
+        }
+        
+        .hobby-header-text h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .hobby-header-text p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .gallery-item {
+            aspect-ratio: 4/3;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: var(--transition-base);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+        }
+        
+        .gallery-placeholder svg {
+            width: 40px;
+            height: 40px;
+            color: var(--text-muted);
+        }
+        
+        .gallery-placeholder span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: var(--spacing-md);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+            transform: translateY(100%);
+            transition: var(--transition-base);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .gallery-overlay-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .gallery-overlay-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Video Section */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .video-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition-base);
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+        }
+        
+        .video-thumbnail {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .video-play-btn {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-base);
+        }
+        
+        .video-card:hover .video-play-btn {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+        }
+        
+        .video-play-btn svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+            margin-left: 4px;
+        }
+        
+        .video-info {
+            padding: var(--spacing-md);
+        }
+        
+        .video-title {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .video-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        /* Writing Section */
+        .writing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+        
+        .writing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            transition: var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .writing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: var(--transition-base);
+        }
+        
+        .writing-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+        }
+        
+        .writing-card:hover::before {
+            opacity: 1;
+        }
+        
+        .writing-genre {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .writing-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .writing-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .writing-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        .writing-meta-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        /* Gaming Stats Section */
+        .gaming-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .gaming-stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            text-align: center;
+            transition: var(--transition-base);
+        }
+        
+        .gaming-stat-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-3px);
+        }
+        
+        .gaming-stat-icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .gaming-stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gaming-stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: var(--spacing-xs);
+        }
+        
+        .gaming-stat-game {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+        
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-grid"></div>
+    <div class="bg-gradient-blob blob-1"></div>
+    <div class="bg-gradient-blob blob-2"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">Aaron<span>.dev</span></a>
+            
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="experience.html" class="nav-link">Experience</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="hobbies.html" class="nav-link active">Hobbies</a>
+                <a href="../index.html#contact" class="nav-cta">Contact</a>
+            </div>
+            
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <span class="section-badge">// Personal Interests</span>
+        <h1 class="page-title">Beyond <span class="text-gradient">The Code</span></h1>
+        <p class="page-subtitle">
+            A glimpse into my creative side — art, videos, and science fiction writing that fuel my imagination.
+        </p>
+    </header>
+
+    <!-- Art Section -->
+    <section class="section" id="art">
+        <div class="section-container">
+            <div class="hobby-section">
+                <div class="hobby-header">
+                    <div class="hobby-icon-large">🎨</div>
+                    <div class="hobby-header-text">
+                        <h2>Art & Drawing</h2>
+                        <p>Visual expressions and creative illustrations</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item animate-on-scroll">
+                        <div class="gallery-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            <span>Artwork 1</span>
+                        </div>
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-title">Artwork Title</div>
+                            <div class="gallery-overlay-desc">Digital Illustration</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item animate-on-scroll">
+                        <div class="gallery-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            <span>Artwork 2</span>
+                        </div>
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-title">Artwork Title</div>
+                            <div class="gallery-overlay-desc">Character Design</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item animate-on-scroll">
+                        <div class="gallery-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            <span>Artwork 3</span>
+                        </div>
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-title">Artwork Title</div>
+                            <div class="gallery-overlay-desc">Concept Art</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item animate-on-scroll">
+                        <div class="gallery-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            <span>Artwork 4</span>
+                        </div>
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-title">Artwork Title</div>
+                            <div class="gallery-overlay-desc">Fan Art</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item animate-on-scroll">
+                        <div class="gallery-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            <span>Artwork 5</span>
+                        </div>
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-title">Artwork Title</div>
+                            <div class="gallery-overlay-desc">Sketch</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item animate-on-scroll">
+                        <div class="gallery-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            <span>Artwork 6</span>
+                        </div>
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-title">Artwork Title</div>
+                            <div class="gallery-overlay-desc">Environment</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="section" id="video">
+        <div class="section-container">
+            <div class="hobby-section">
+                <div class="hobby-header">
+                    <div class="hobby-icon-large">🎬</div>
+                    <div class="hobby-header-text">
+                        <h2>Videos</h2>
+                        <p>Video projects and creative content</p>
+                    </div>
+                </div>
+                
+                <div class="video-grid">
+                    <div class="video-card animate-on-scroll">
+                        <div class="video-thumbnail">
+                            <div class="video-play-btn">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Video Title 1</h3>
+                            <p class="video-meta">Gaming Content • 10:24</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card animate-on-scroll">
+                        <div class="video-thumbnail">
+                            <div class="video-play-btn">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Video Title 2</h3>
+                            <p class="video-meta">Tutorial • 15:30</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card animate-on-scroll">
+                        <div class="video-thumbnail">
+                            <div class="video-play-btn">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Video Title 3</h3>
+                            <p class="video-meta">Vlog • 8:45</p>
+                        </div>
+                    </div>
+                    
+                    <div class="video-card animate-on-scroll">
+                        <div class="video-thumbnail">
+                            <div class="video-play-btn">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <polygon points="5 3 19 12 5 21 5 3"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">Video Title 4</h3>
+                            <p class="video-meta">Review • 12:15</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Writing Section -->
+    <section class="section" id="writing">
+        <div class="section-container">
+            <div class="hobby-section">
+                <div class="hobby-header">
+                    <div class="hobby-icon-large">✍️</div>
+                    <div class="hobby-header-text">
+                        <h2>Creative Writing</h2>
+                        <p>Science fiction stories and novels — originally in Chinese, translated to English</p>
+                    </div>
+                </div>
+                
+                <div class="writing-grid">
+                    <div class="writing-card animate-on-scroll">
+                        <span class="writing-genre">Science Fiction</span>
+                        <h3 class="writing-title">Story Title 1</h3>
+                        <p class="writing-excerpt">
+                            A compelling excerpt from the story that gives readers a taste of the narrative style 
+                            and the world being built within these pages...
+                        </p>
+                        <div class="writing-meta">
+                            <span class="writing-meta-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 20h9"/>
+                                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                                </svg>
+                                In Progress
+                            </span>
+                            <span class="writing-meta-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                </svg>
+                                Novel
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="writing-card animate-on-scroll">
+                        <span class="writing-genre">Science Fiction</span>
+                        <h3 class="writing-title">Story Title 2</h3>
+                        <p class="writing-excerpt">
+                            Another captivating story excerpt that draws readers into a different universe, 
+                            exploring themes of technology and humanity...
+                        </p>
+                        <div class="writing-meta">
+                            <span class="writing-meta-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 20h9"/>
+                                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                                </svg>
+                                Translating
+                            </span>
+                            <span class="writing-meta-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                </svg>
+                                Short Story
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="writing-card animate-on-scroll">
+                        <span class="writing-genre">Science Fiction</span>
+                        <h3 class="writing-title">Story Title 3</h3>
+                        <p class="writing-excerpt">
+                            A story that weaves together elements of space exploration, artificial intelligence, 
+                            and the fundamental questions of existence...
+                        </p>
+                        <div class="writing-meta">
+                            <span class="writing-meta-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                Completed
+                            </span>
+                            <span class="writing-meta-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                                </svg>
+                                Novella
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gaming Section -->
+    <section class="section" id="gaming">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">// Gaming</span>
+                <h2 class="section-title">Gaming Experience</h2>
+                <p class="section-description">
+                    Gaming isn't just a hobby — it's a competitive pursuit and a lens through which I understand player experience.
+                </p>
+            </div>
+            
+            <div class="gaming-stats">
+                <div class="gaming-stat-card animate-on-scroll">
+                    <div class="gaming-stat-icon">⚔️</div>
+                    <div class="gaming-stat-value">3000+</div>
+                    <div class="gaming-stat-label">Hours Played</div>
+                    <div class="gaming-stat-game">League of Legends</div>
+                </div>
+                
+                <div class="gaming-stat-card animate-on-scroll">
+                    <div class="gaming-stat-icon">🏆</div>
+                    <div class="gaming-stat-value">Master</div>
+                    <div class="gaming-stat-label">Peak Rank</div>
+                    <div class="gaming-stat-game">Teamfight Tactics</div>
+                </div>
+                
+                <div class="gaming-stat-card animate-on-scroll">
+                    <div class="gaming-stat-icon">📱</div>
+                    <div class="gaming-stat-value">1000+</div>
+                    <div class="gaming-stat-label">Hours Played</div>
+                    <div class="gaming-stat-game">Arknights</div>
+                </div>
+                
+                <div class="gaming-stat-card animate-on-scroll">
+                    <div class="gaming-stat-icon">🎮</div>
+                    <div class="gaming-stat-value">8+</div>
+                    <div class="gaming-stat-label">Years Gaming</div>
+                    <div class="gaming-stat-game">Various Titles</div>
+                </div>
+            </div>
+            
+            <div class="cards-grid" style="margin-top: var(--spacing-2xl);">
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Competitive Gaming</h3>
+                    <p class="card-description">
+                        Reaching Master rank in Teamfight Tactics required deep understanding of game mechanics, 
+                        meta analysis, and quick decision-making under pressure.
+                    </p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">🧠</div>
+                    <h3 class="card-title">Strategic Thinking</h3>
+                    <p class="card-description">
+                        Years of strategic games have honed my ability to think several steps ahead, 
+                        analyze complex systems, and adapt to changing conditions.
+                    </p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">👥</div>
+                    <h3 class="card-title">Community Engagement</h3>
+                    <p class="card-description">
+                        Active participation in gaming communities has given me insights into what 
+                        players want and how to build engaging experiences.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section">
+        <div class="section-container">
+            <div class="card animate-on-scroll" style="text-align: center; padding: var(--spacing-2xl);">
+                <h2 style="font-size: 2rem; margin-bottom: var(--spacing-md);">Let's Connect</h2>
+                <p style="color: var(--text-secondary); margin-bottom: var(--spacing-lg); max-width: 500px; margin-left: auto; margin-right: auto;">
+                    Want to chat about games, collaborate on creative projects, or just say hi? I'd love to hear from you!
+                </p>
+                <div class="hero-buttons" style="justify-content: center;">
+                    <a href="../index.html#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="projects.html" class="btn btn-secondary">View My Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">Aaron<span>.dev</span></div>
+                <p class="footer-description">
+                    Product Manager & Data Scientist passionate about gaming, technology, and creating impactful user experiences.
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-title">Navigation</h4>
+                <div class="footer-links">
+                    <a href="../index.html" class="footer-link">Home</a>
+                    <a href="about.html" class="footer-link">About</a>
+                    <a href="experience.html" class="footer-link">Experience</a>
+                    <a href="projects.html" class="footer-link">Projects</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-title">Projects</h4>
+                <div class="footer-links">
+                    <a href="projects.html#products" class="footer-link">Products</a>
+                    <a href="projects.html#ml" class="footer-link">ML Projects</a>
+                    <a href="projects.html#other" class="footer-link">Other Projects</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footer-title">Hobbies</h4>
+                <div class="footer-links">
+                    <a href="#art" class="footer-link">Art & Drawing</a>
+                    <a href="#video" class="footer-link">Videos</a>
+                    <a href="#writing" class="footer-link">Writing</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Aaron. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link" aria-label="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+</body>
+</html>
