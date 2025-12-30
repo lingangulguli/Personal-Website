@@ -1366,3 +1366,50 @@ a {
 .guestbook-container {
     min-height: 200px;
 }
+
+/* ============================================
+   Hero Buttons - 4个按钮布局
+   ============================================ */
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hero-buttons .btn {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+}
+
+.hero-buttons .btn svg {
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .hero-buttons {
+        flex-direction: column;
+    }
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ============================================
+   Sakana Widget
+   ============================================ */
+.sakana-box {
+    position: fixed;
+    right: 0;
+    bottom: 70px;
+    z-index: 999;
+    transform-origin: 100% 100%;
+}
+
+/* 避免和主题切换按钮重叠 */
+@media (max-width: 768px) {
+    .sakana-box {
+        bottom: 80px;
+        transform: scale(0.8);
+    }
+}
